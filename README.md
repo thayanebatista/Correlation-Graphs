@@ -1,3 +1,4 @@
 # Correlation Graphs
  
-- a partir de dados gerados pelo DESeq2, gerar graficos de correla��o com filtros de valores
+   a partir de dados gerados pela filtragem do DESeq2, gerar graficos de correlação com filtros de valores
+      os valores são ajustáveis
