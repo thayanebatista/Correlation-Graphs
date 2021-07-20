@@ -1,6 +1,7 @@
 library(ggcorrplot)
 library(dplyr)
-#utilizando dados carregados do resultado do DESeq2 
+#utilizando dados carregados do resultado do DESeq2 filtrados anteriormente
+genesFiltered <- gene #valor do deseq
 genes <- genesFiltered$vsd #todos os valores deseq para cada amostra com valores NA de nomes nao pareaveis com a biblioteca do kegg
 genes <- genes[complete.cases(genes),] # limpando os dados para somente linhas com valores
 cellcorrelation <- as.data.frame(t(genes))
@@ -16,7 +17,7 @@ res[] <- sapply(res,function(x) ifelse(x > 0.9
                                        & x <= 1,
                                        x , NA))
 
-#
+# variando o numero é possível ajustar o tamanho do grafico que vai ser gerado
 width = (ncol(res) * 3)
 height = (nrow(res) * 3)
 #salvando o arquivo do tipo png na pasta já criada graphics
