@@ -1,4 +1,5 @@
-
+library(ggcorrplot)
+library(dplyr)
 #utilizando dados carregados do resultado do DESeq2 
 genes <- genesFiltered$vsd #todos os valores deseq para cada amostra com valores NA de nomes nao pareaveis com a biblioteca do kegg
 genes <- genes[complete.cases(genes),] # limpando os dados para somente linhas com valores
@@ -11,7 +12,6 @@ correlation <- cor(cellcorrelation)
 
 res <- correlation
 res <- as.data.frame(res)
-# teste <- 0.8
 res[] <- sapply(res,function(x) ifelse(x > 0.9
                                        & x <= 1,
                                        x , NA))
